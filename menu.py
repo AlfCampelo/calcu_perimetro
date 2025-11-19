@@ -4,7 +4,7 @@ from rich.panel import Panel
 from rich.prompt import Prompt
 
 from calcu_peri import calcular_perimetro
-from utils_json import registrar_resultado, mostrar_json, buscar_por_figura
+from utils_json import mostrar_json, buscar_por_figura
 
 console = Console()
 
@@ -44,7 +44,6 @@ def mostrar_menu():
         table.add_row(op, desc)
 
     console.print(table)
-
 
 def menu() -> None:  
     while True:

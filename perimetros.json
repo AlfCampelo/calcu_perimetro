@@ -94,5 +94,93 @@
             "cateto_1": 20.0,
             "cateto_2": 10.0
         }
+    },
+    {
+        "fecha": "19/11/2025 13:20:S",
+        "figura": "cuadrado",
+        "perimetro": 40.0,
+        "parametros": {
+            "lado": 10.0
+        }
+    },
+    {
+        "fecha": "19/11/2025 13:20:S",
+        "figura": "rectangulo",
+        "perimetro": 40.0,
+        "parametros": {
+            "base": 8.0,
+            "altura": 12.0
+        }
+    },
+    {
+        "fecha": "19/11/2025 13:20:S",
+        "figura": "trapecio",
+        "perimetro": 48.0,
+        "parametros": {
+            "base_mayor": 20.0,
+            "base_menor": 12.0,
+            "lado": 8.0
+        }
+    },
+    {
+        "fecha": "19/11/2025 13:20:S",
+        "figura": "circulo",
+        "perimetro": 37.7,
+        "parametros": {
+            "radio": 6.0
+        }
+    },
+    {
+        "fecha": "19/11/2025 13:21:S",
+        "figura": "poligono_regular",
+        "perimetro": 96.0,
+        "parametros": {
+            "num_lados": 12,
+            "lado": 8.0
+        }
+    },
+    {
+        "fecha": "19/11/2025 13:21:S",
+        "figura": "triangulo_equilatero",
+        "perimetro": 24.0,
+        "parametros": {
+            "lado": 8.0
+        }
+    },
+    {
+        "fecha": "19/11/2025 13:21:S",
+        "figura": "triangulo_isosceles",
+        "perimetro": 26.0,
+        "parametros": {
+            "lados_iguales": 10.0,
+            "lado": 6.0
+        }
+    },
+    {
+        "fecha": "19/11/2025 13:21:S",
+        "figura": "triangulo_escaleno",
+        "perimetro": 30.0,
+        "parametros": {
+            "lado_1": 8.0,
+            "lado_2": 10.0,
+            "lado_3": 12.0
+        }
+    },
+    {
+        "fecha": "19/11/2025 13:22:S",
+        "figura": "triangulo_rectangulo",
+        "perimetro": 34.42,
+        "parametros": {
+            "cateto_1": 12.0,
+            "cateto_2": 8.0
+        }
+    },
+    {
+        "fecha": "19/11/2025 13:27:S",
+        "figura": "cuadrado",
+        "perimetro": 32.0,
+        "parametros": {
+            "lado": 8.0
+        }
     }
 ]

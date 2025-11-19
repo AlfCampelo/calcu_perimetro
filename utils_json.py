@@ -4,6 +4,7 @@ from datetime import datetime
 from typing import List, Dict
 
 
+
 ARCHIVO_JSON = Path('perimetros.json')
 
 
@@ -17,14 +18,14 @@ def cargar_json(ruta: Path=ARCHIVO_JSON, default=None) -> List[Dict]:
     return default or []
 
 
-def guardar_json(dato: Dict, ruta: Path=ARCHIVO_JSON):
+def guardar_json(dato: Dict, ruta: Path=ARCHIVO_JSON) -> None:
     datos = cargar_json(ruta, [])
     datos.append(dato)
     with ruta.open('w', encoding='utf-8')as f:
         json.dump(datos, f, indent=4, ensure_ascii=False)
 
 
-def mostrar_json():
+def mostrar_json() -> None:
     datos = cargar_json()
     if not datos:
         print('No hay datos guardados aún.')
@@ -32,7 +33,7 @@ def mostrar_json():
         print(json.dumps(datos, indent=4, ensure_ascii=False))
 
 
-def obtener_fecha():
+def obtener_fecha() -> str:
     return datetime.now().strftime('%d/%m/%Y %H:%M:S')
 
 
@@ -59,16 +60,16 @@ def buscar_por_figura(figura: str, ruta: Path=ARCHIVO_JSON):
                 }
             resultados.append(resultado)
 
-        if resultados:
-            print(f'\nResultados de búsqueda para la figura: {figura}')
-            for i, res in enumerate(resultados):
-                print(f'\nRegistro #{i + 1} ({res["fecha"]}):')
-                print(f'Perimetro: {res["perimetro"]}')
-                params_str = ', '.join([f'{k}: {v}' for k, v in res['parametros'].items()]) if isinstance(res['parametros'], dict) else res['parametros']
-                print(f'Parámetros: {{{params_str}}}')
-                print('---------------------------------------------------------------------------------------')
-        else:
-            print(f'\nNo se encuentran registros para la figura {figura}')
+    if resultados:
+        print(f'\nResultados de búsqueda para la figura: {figura}')
+        for i, res in enumerate(resultados):
+            print(f'\nRegistro #{i + 1} ({res["fecha"]}):')
+            print(f'Perimetro: {res["perimetro"]}')
+            params_str = ', '.join([f'{k}: {v}' for k, v in res['parametros'].items()]) if isinstance(res['parametros'], dict) else res['parametros']
+            print(f'Parámetros: {{{params_str}}}')
+            print('---------------------------------------------------------------------------------------')
+    else:
+        print(f'\nNo se encuentran registros para la figura {figura}')
 
 
    

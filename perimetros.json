@@ -1,0 +1,98 @@
+[
+    {
+        "fecha": "18/11/2025 22:30:S",
+        "figura": "cuadrado",
+        "perimetro": 20.0,
+        "parametros": {
+            "lado": 5.0
+        }
+    },
+    {
+        "fecha": "19/11/2025 12:08:S",
+        "figura": "cuadrado",
+        "perimetro": 24.0,
+        "parametros": {
+            "lado": 6.0
+        }
+    },
+    {
+        "fecha": "19/11/2025 12:12:S",
+        "figura": "cuadrado",
+        "perimetro": 32.0,
+        "parametros": {
+            "lado": 8.0
+        }
+    },
+    {
+        "fecha": "19/11/2025 12:13:S",
+        "figura": "rectangulo",
+        "perimetro": 26.0,
+        "parametros": {
+            "base": 5.0,
+            "altura": 8.0
+        }
+    },
+    {
+        "fecha": "19/11/2025 12:13:S",
+        "figura": "trapecio",
+        "perimetro": 26.0,
+        "parametros": {
+            "base_mayor": 10.0,
+            "base_menor": 6.0,
+            "lado": 5.0
+        }
+    },
+    {
+        "fecha": "19/11/2025 12:14:S",
+        "figura": "circulo",
+        "perimetro": 50.27,
+        "parametros": {
+            "radio": 8.0
+        }
+    },
+    {
+        "fecha": "19/11/2025 12:14:S",
+        "figura": "poligono_regular",
+        "perimetro": 40.0,
+        "parametros": {
+            "num_lados": 8,
+            "lado": 5.0
+        }
+    },
+    {
+        "fecha": "19/11/2025 12:14:S",
+        "figura": "triangulo_equilatero",
+        "perimetro": 24.0,
+        "parametros": {
+            "lado": 8.0
+        }
+    },
+    {
+        "fecha": "19/11/2025 12:15:S",
+        "figura": "triangulo_isosceles",
+        "perimetro": 16.0,
+        "parametros": {
+            "lados_iguales": 6.0,
+            "lado": 4.0
+        }
+    },
+    {
+        "fecha": "19/11/2025 12:15:S",
+        "figura": "triangulo_escaleno",
+        "perimetro": 21.0,
+        "parametros": {
+            "lado_1": 8.0,
+            "lado_2": 9.0,
+            "lado_3": 4.0
+        }
+    },
+    {
+        "fecha": "19/11/2025 12:16:S",
+        "figura": "triangulo_rectangulo",
+        "perimetro": 52.36,
+        "parametros": {
+            "cateto_1": 20.0,
+            "cateto_2": 10.0
+        }
+    }
+]

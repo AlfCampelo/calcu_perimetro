@@ -182,5 +182,13 @@
         "parametros": {
             "lado": 8.0
         }
+    },
+    {
+        "fecha": "19/11/2025 14:34:25",
+        "figura": "cuadrado",
+        "perimetro": 20.0,
+        "parametros": {
+            "lado": 5.0
+        }
     }
 ]

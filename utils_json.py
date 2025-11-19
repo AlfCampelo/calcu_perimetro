@@ -34,7 +34,7 @@ def mostrar_json() -> None:
 
 
 def obtener_fecha() -> str:
-    return datetime.now().strftime('%d/%m/%Y %H:%M:S')
+    return datetime.now().strftime('%d/%m/%Y %H:%M:%S')
 
 
 def registrar_resultado(**kwargs):

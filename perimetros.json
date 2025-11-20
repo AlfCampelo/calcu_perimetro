@@ -190,5 +190,112 @@
         "parametros": {
             "lado": 5.0
         }
+    },
+    {
+        "fecha": "19/11/2025 22:05:53",
+        "figura": "poligono_regular",
+        "perimetro": 72.0,
+        "parametros": {
+            "num_lados": 9,
+            "lado": 8.0
+        }
+    },
+    {
+        "fecha": "19/11/2025 22:08:16",
+        "figura": "circulo",
+        "perimetro": 50.27,
+        "parametros": {
+            "radio": 8.0
+        }
+    },
+    {
+        "fecha": "20/11/2025 19:06:10",
+        "figura": "cuadrado",
+        "perimetro": 100.0,
+        "parametros": {
+            "lado": 25.0
+        }
+    },
+    {
+        "fecha": "20/11/2025 19:06:23",
+        "figura": "rectangulo",
+        "perimetro": 28.0,
+        "parametros": {
+            "base": 6.0,
+            "altura": 8.0
+        }
+    },
+    {
+        "fecha": "20/11/2025 19:06:44",
+        "figura": "trapecio",
+        "perimetro": 63.0,
+        "parametros": {
+            "base_mayor": 25.0,
+            "base_menor": 18.0,
+            "lado": 10.0
+        }
+    },
+    {
+        "fecha": "20/11/2025 19:06:53",
+        "figura": "circulo",
+        "perimetro": 157.08,
+        "parametros": {
+            "radio": 25.0
+        }
+    },
+    {
+        "fecha": "20/11/2025 19:07:12",
+        "figura": "poligono_regular",
+        "perimetro": 225.0,
+        "parametros": {
+            "num_lados": 25,
+            "lado": 9.0
+        }
+    },
+    {
+        "fecha": "20/11/2025 19:07:31",
+        "figura": "triangulo_equilatero",
+        "perimetro": 27.0,
+        "parametros": {
+            "lado": 9.0
+        }
+    },
+    {
+        "fecha": "20/11/2025 19:07:45",
+        "figura": "triangulo_isosceles",
+        "perimetro": 155.0,
+        "parametros": {
+            "lados_iguales": 65.0,
+            "lado": 25.0
+        }
+    },
+    {
+        "fecha": "20/11/2025 19:08:01",
+        "figura": "triangulo_escaleno",
+        "perimetro": 59.0,
+        "parametros": {
+            "lado_1": 41.0,
+            "lado_2": 16.0,
+            "lado_3": 2.0
+        }
+    },
+    {
+        "fecha": "20/11/2025 19:11:19",
+        "figura": "triangulo_escaleno",
+        "perimetro": 171.0,
+        "parametros": {
+            "lado_1": 80.0,
+            "lado_2": 90.0,
+            "lado_3": 1.0
+        }
+    },
+    {
+        "fecha": "20/11/2025 19:13:00",
+        "figura": "triangulo_rectangulo",
+        "perimetro": 118.54,
+        "parametros": {
+            "cateto_1": 45.0,
+            "cateto_2": 23.0
+        }
     }
 ]

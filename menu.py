@@ -8,7 +8,92 @@ from utils_json import mostrar_json, buscar_por_figura
 
 console = Console()
 
+# ======================================
+# ====== CONFIGURACIÓN DE FIGURAS ======
+# ======================================
+
+FIGURAS_CONFIG = {
+    '1': {
+        'nombre': 'cuadrado',
+        'titulo': 'Cuadrado',
+        'params': [
+            ('lado', 'Introduce el lado', 'float')
+        ]
+    },
+    '2': {
+        'nombre': 'rectangulo',
+        'titulo': 'Rectángulo',
+        'params': [
+            ('base', 'Introduce la base', 'float'),
+            ('altura', 'Introduce la altura', 'float')
+        ]
+    },
+    '3': {
+        'nombre': 'trapecio',
+        'titulo': 'Trapecio',
+        'params': [
+            ('base_mayor', 'Introduce la base mayor', 'float'),
+            ('base_menor', 'Introduce la base menor', 'float'),
+            ('lado', 'Introduce los lados', 'float')
+        ]
+    },
+    '4': {
+        'nombre': 'circulo',
+        'titulo': 'Circulo',
+        'params': [
+            ('radio', 'Introduce el radio', 'float')
+        ]
+    },
+    '5': {
+        'nombre': 'poligono_regular',
+        'titulo': 'Polígono regular',
+        'params': [
+            ('num_lados', 'Introduce el número de lados', 'int'),
+            ('lado', 'Introduce el lado', 'float'),
+        ]
+    },
+    '6': {
+        'nombre': 'triangulo_equilatero',
+        'titulo': 'Triángulo equilátero',
+        'params': [
+            ('lado', 'Introduce el lado', 'float')
+        ]
+    },
+    '7': {
+        'nombre': 'triangulo_isosceles',
+        'titulo': 'Triángulo isósceles',
+        'params': [
+            ('lados_iguales', 'Introduce los lados iguales', 'float'),
+            ('lado', 'Introduce el otro lado', 'float'),
+        ]
+    },
+    '8': {
+        'nombre': 'triangulo_escaleno',
+        'titulo': 'Triángulo escaleno',
+        'params': [
+            ('lado_1', 'Introduce el primer lado', 'float'),
+            ('lado_2', 'Introduce el segundo lado', 'float'),
+            ('lado_3', 'Introduce el tercer lado', 'float')
+        ]
+    },
+    '9': {
+        'nombre': 'triangulo_rectangulo',
+        'titulo': 'Triángulo rectángulo',
+        'params': [
+            ('cateto_1', 'Introduce el primer cateto', 'float'),
+            ('cateto_2', 'Introduce el segundo cateto', 'float'),
+        ]
+    }
+}
+
+
+# ======================================
+# ======== FUNCIONES AUXILIARES ========
+# ======================================
+
+
 def pedir_float(mensaje: str) -> float:
+    ''' Solicita un número float positivo al usuario '''
     while True:
         try:
             valor = float(Prompt.ask(mensaje))
@@ -19,7 +104,167 @@ def pedir_float(mensaje: str) -> float:
             console.print('[red]Ingresa un número válido mayor que cero.')
 
 
-def mostrar_menu():
+def pedir_int(mensaje: str) -> int:
+    ''' Solicita un número entero positivo al usuario '''
+    while True:
+        try:
+            valor = int(Prompt.ask(mensaje))
+            if valor <= 0:
+                raise ValueError
+            return valor
+        except ValueError:
+            console.print('[red]Ingresa un número entero válido mayor que cero[/red]')
+
+
+def procesar_figura(config: dict) -> None:
+    '''
+        Procesa el cálculo de perímetro para cualquier figura según su configuración.
+
+        Args:
+            config: Diccionario con la configuración de la figura
+                (nombre, titulo, params)
+    '''
+    try:
+        # Recopilar parámetros dinámicamente
+        parametros = {}
+
+        for paran_name, mensaje, tipo in config['params']:
+            if tipo == 'int':
+                parametros[paran_name] = pedir_int(mensaje)
+            elif tipo == 'float':
+                parametros[paran_name] = pedir_float(mensaje)
+
+        # Calcular perímetro
+        perimetro = calcular_perimetro(config['nombre'], **parametros)
+
+        # Mostrar resultado
+        mostrar_resultado(config['titulo'], perimetro=perimetro)
+    
+    except ValueError as e:
+        console.print(Panel(f'[bold red]⚠️ Error: {e}[/bold red]', border_style='red'))
+    except Exception as e:
+        console.print(Panel(f'[bold red]❌ Error inesperado: {e}[/bold red]', border_style='red'))
+
+
+
+def mostrar_resultado(nombre_figura: str, perimetro: float) -> None:
+    ''' Muestra el resultado del cálculo de forma atractiva. '''
+    console.print(Panel.fit(
+        f'[bold cyan]Perímetro del {nombre_figura.lower()}[/bold cyan]'
+        f'[bold green] 📏 {perimetro} unidades[/bold green]',
+        border_style='green'
+    ))
+
+
+def mostrar_menu() -> None:
+    ''' Muestra el menú principal con todas las opciones '''
+    table = Table(title='MENÚ PERÍMETRO', style='bold blue')
+
+    table.add_column('Opción', style='yellow', justify='center')
+    table.add_column('Descripción')
+
+    # Agregar opciones de figuras desde la configuración
+    for opcion, config in FIGURAS_CONFIG.items():
+        table.add_row(opcion, config['titulo'])
+
+    # Agregar opciones adicionales
+    table.add_row('10', 'Mostrar JSON')
+    table.add_row('11', 'Buscar historial por figura')
+    table.add_row('12', 'Salir')
+
+    console.print(table)
+
+
+def buscar_historial() -> None:
+    ''' Permite al usuario buscar en el historial por figura '''
+
+    # Crear lista de figuras para búsqueda
+    figuras_busqueda = [
+        (str(i), config['nombre'], config['titulo'])
+        for i, (_, config) in enumerate(FIGURAS_CONFIG.items(), 1)
+    ]
+
+    # Mostrar tabla de opciones
+    table = Table(title='Buscar en el historial', style='bold blue')
+    table.add_column('Opción', style='yellow', justify='center')
+
+    for opcion, _, titulo in figuras_busqueda:
+        table.add_row(opcion, titulo)
+
+    console.print(table)
+
+    # Solicitar opción
+    try:
+        index_str = Prompt.ask(
+            'Introduce el número de figura a buscar',
+            choices=[str(i) for i in range(1, len(figuras_busqueda) + 1)]
+        )
+        index = int(index_str) -1
+        nombre_figura = figuras_busqueda[index][1]
+        buscar_por_figura(figura=nombre_figura)
+
+    except (ValueError, IndexError) as e:
+        console.print(Panel(f'[bold red]Errror: {e}[/bold red]', border_style='red'))
+
+    
+# ======================================
+# =========== MENÚ PRINCIPAL ===========
+# ======================================
+
+def menu() -> None:
+    ''' Menú principal de la aplicación '''
+    while True:
+        try:
+            mostrar_menu()
+
+            opcion = Prompt.ask(
+                '\n[bold cyan]Elige una opción[/bold cyan]',
+                choices=[str(i) for i in range(1, 13)])
+            
+            # Procesar figuras geométricas (opciones 1-9)
+            if opcion in FIGURAS_CONFIG:
+                procesar_figura(FIGURAS_CONFIG[opcion])
+            
+            # Mostrar JSON (opción 10)
+            elif opcion == '10':
+                console.print('\n[bold cyan]=== HISTORIAL DE CÁLCULOS ===[/bold cyan]\n')
+                mostrar_json()
+
+            # Buscar historial (opción 11)
+            elif opcion == '11':
+                buscar_historial()
+
+            # Salir (opción 12)
+            elif opcion == '12':
+                console.print(Panel(
+                    '[bold green]✋ Hasta pronto[/bold green]',
+                    border_style= 'green'
+                ))
+                break
+            
+            # Pausa antes de mostrar el menú nuevamente
+            if opcion != '12':
+                console.print('\n[dim]Presiona ENTER para continuar...[/dim]')
+                input()
+                console.clear()
+        
+        except KeyboardInterrupt:
+            console.print('\n')
+            console.print(Panel(
+                '[bold yellow]⚠️ Operación cancelada por el usuario[/bold yellow]',
+                border_style='yellow'
+            ))
+            break
+
+        except Exception as e:
+             console.print(Panel(
+                f'[bold red]❌ Error inesperado: {e}[/bold red]',
+                border_style='red'
+            ))
+            
+
+
+""" def mostrar_menu():
     table = Table(title='MENÚ PERÍMETRO', style='bold blue')
 
     table.add_column('Opción', style='yellow')
@@ -154,4 +399,4 @@ def menu() -> None:
             break
         
         else:
-            console.print(Panel(f'[bold red]⛔ Opción no valida[/bold red]'))
+            console.print(Panel(f'[bold red]⛔ Opción no valida[/bold red]')) """

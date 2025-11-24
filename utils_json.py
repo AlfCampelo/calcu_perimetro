@@ -2,6 +2,7 @@ import json
 from pathlib import Path
 from datetime import datetime
 from typing import List, Dict
+from collections import Counter
 
 from rich.console import Console
 from rich.json import JSON
@@ -17,6 +18,7 @@ ARCHIVO_JSON = Path('perimetros.json')
 
 
 def cargar_json(ruta: Path=ARCHIVO_JSON, default=None) -> List[Dict]:
+    ''' Carga datos desde un archivo JSON '''
     if ruta.exists():
         try:
             with ruta.open('r', encoding='utf-8') as f:
@@ -27,6 +29,7 @@ def cargar_json(ruta: Path=ARCHIVO_JSON, default=None) -> List[Dict]:
 
 
 def guardar_json(dato: Dict, ruta: Path=ARCHIVO_JSON) -> None:
+    ''' Guarda un dato en el archivo JSON '''
     datos = cargar_json(ruta, [])
     datos.append(dato)
     with ruta.open('w', encoding='utf-8')as f:
@@ -34,6 +37,7 @@ def guardar_json(dato: Dict, ruta: Path=ARCHIVO_JSON) -> None:
 
 
 def mostrar_json() -> None:
+    ''' Muestra todos los datos del JSON con Rich en formato tabla'''
     datos = cargar_json()
         
     # FORMATO TABLA
@@ -89,14 +93,65 @@ def mostrar_json() -> None:
     
     console.print(table)
 
+    # Mostrar estadísticas resumidas
+    mostrar_estadisticas_resumidas(datos)
+
+
 
 def obtener_fecha() -> str:
+    ''' Retorna la fecha y hora actual formateada '''
     return datetime.now().strftime('%d/%m/%Y %H:%M:%S')
 
 
 def registrar_resultado(**kwargs):
+    ''' Registra un resultado de cálculo en el JSON '''
     guardar_json({'fecha': obtener_fecha(), **kwargs})
 
+
+def mostrar_estadisticas_resumidas(datos: List[Dict]) -> None:
+    ''' Muestra estadísticas resumidas de los datos '''
+
+    # Contar figuras
+    figuras = [d.get('figura', 'desconocida') for d in datos]
+    contador_figuras = Counter(figuras)
+
+    # Calcular perímetros
+    perimetros = [
+        d.get('perimetro', 0)
+        for d in datos
+        if isinstance(d.get('perimetro'), (int, float))
+    ]
+
+    # Crear tabla de estadísticas
+    stats_table = Table(
+        title='📈 Estadísticas',
+        box=box.SIMPLE,
+        show_header=False,
+        border_style='green',
+        expand=False
+    )
+
+    stats_table.add_column(style='cyan')
+    stats_table.add_column(style='yellow', justify='right')
+
+    stats_table.add_row('Total de cálculos:', str(len(datos)))
+
+    if perimetros:
+        stats_table.add_row('Perímetro promedio:', f'{sum(perimetros) / len(perimetros):.2f}')
+        stats_table.add_row('Perímetro máximo:', f'{max(perimetros):.2f}')
+        stats_table.add_row('Perimetro mínimo:', f'{min(perimetros):.2f}')
+
+    if contador_figuras:
+        figura_mas_comun = contador_figuras.most_common(1)[0]
+        stats_table.add_row(
+            'Figura más calculada:', 
+            f'{figura_mas_comun[0].replace("_", " ").title()} ({figura_mas_comun[1]}x)'
+        )
+    
+    console.print('\n')
+    console.print(stats_table)
+
+    
 
 def buscar_por_figura(figura: str, ruta: Path = ARCHIVO_JSON) -> None:
     """Busca y muestra registros de una figura específica con Rich"""
@@ -197,30 +252,71 @@ def buscar_por_figura(figura: str, ruta: Path = ARCHIVO_JSON) -> None:
             console.print(stats_table)
 
             
-    """ resultados = []
+def mostrar_ultimos_calculos(n: int = 5) -> None:
+    ''' Muestra los últimos n cálculos realizados '''
+    datos = cargar_json()
 
-    for registro in datos:
-        if isinstance(registro, dict) and 'figura' in registro and registro['figura'].lower() == figura:
-            resultado = {
-                'fecha': registro.get('fecha', 'N/D'),
-                'parametros': registro.get('parametros', 'N/D'),
-                'perimetro': registro.get('perimetro', 'N/D')
-                }
-            resultados.append(resultado)
+    if not datos:
+        console.print(Panel(
+            '[yellow]📂 No hay datos guardados aún.[/yellow]',
+            title='Historial vacío',
+            border_style='yellow'
+        ))
+        return
 
-    if resultados:
-        print(f'\nResultados de búsqueda para la figura: {figura}')
-        for i, res in enumerate(resultados):
-            print(f'\nRegistro #{i + 1} ({res["fecha"]}):')
-            print(f'Perimetro: {res["perimetro"]}')
-            params_str = ', '.join([f'{k}: {v}' for k, v in res['parametros'].items()]) if isinstance(res['parametros'], dict) else res['parametros']
-            print(f'Parámetros: {{{params_str}}}')
-            print('---------------------------------------------------------------------------------------')
-    else:
-        print(f'\nNo se encuentran registros para la figura {figura}')
- """
+    # Tomar los últimos n registros
+    ultimos = datos[-n:] if len(datos) >= n else datos
+
+    table = Table(
+        title=f'🕒 Últimos {len(ultimos)} cálculos',
+        title_style='bold cyan',
+        box=box.ROUNDED,
+        show_header=True,
+        header_style='bold magenta',
+        border_style='cyan',
+        expand=False
+    )
+
+    table.add_column('Fecha', style='cyan', width=17)
+    table.add_column('Figura', style='green', width=20)
+    table.add_column('Perímetro', style='bold blue',justify='right', width=12)
+
+    for registro in reversed(ultimos): # Mostrar del maś reciente al más antiguo
+        fecha = registro.get('fecha', 'N/D')
+        figura = registro.get('figura', 'desconocida').replace('_', ' ').title()
+        perimetro = registro.get('perimetro', 'N/D')
+
+        perimetro_str = f'{perimetro:.2f}' if isinstance(perimetro, (int, float)) else str(perimetro)
+
+        table.add_row(fecha, figura, perimetro_str)
     
-   
+    console.print(table)
+
+
+def limpiar_historial() -> bool:
+    ''' Elimina todos los registros del historial '''
+    try:
+        if ARCHIVO_JSON.exists():
+            ARCHIVO_JSON.unlink()
+            console.print(Panel(
+                '[green]✅ Historial limpiado exitosamente[/green]',
+                border_style='green'
+            ))
+            return True
+        else:
+            console.print(Panel(
+                '[yellow]⚠️ No hay historial para limpiar[/yellow]',
+                border_style='yellow'
+            ))
+            return False
+    except Exception as e:
+        console.print(Panel(
+            f'[red]❌ Error al limpiar el historial: {e}[/red]',
+            border_style='red'
+        ))
+        return False
+
+
 
                 
 

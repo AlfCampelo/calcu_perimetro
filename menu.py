@@ -4,7 +4,7 @@ from rich.panel import Panel
 from rich.prompt import Prompt
 
 from calcu_peri import calcular_perimetro
-from utils_json import mostrar_json, buscar_por_figura
+from utils_json import mostrar_json, buscar_por_figura, mostrar_ultimos_calculos, limpiar_historial
 
 console = Console()
 
@@ -170,8 +170,10 @@ def mostrar_menu() -> None:
     # Agregar opciones adicionales
     table.add_row('10', 'Mostrar JSON')
     table.add_row('11', 'Buscar historial por figura')
-    table.add_row('12', 'Salir')
-
+    table.add_row('12', 'Últimos 5 cálculos')
+    table.add_row('13', 'Limpiar historial')
+    table.add_row('14', 'Salir')
+    
     console.print(table)
 
 
@@ -219,7 +221,7 @@ def menu() -> None:
 
             opcion = Prompt.ask(
                 '\n[bold cyan]Elige una opción[/bold cyan]',
-                choices=[str(i) for i in range(1, 13)])
+                choices=[str(i) for i in range(1, 15)])
             
             # Procesar figuras geométricas (opciones 1-9)
             if opcion in FIGURAS_CONFIG:
@@ -234,8 +236,23 @@ def menu() -> None:
             elif opcion == '11':
                 buscar_historial()
 
-            # Salir (opción 12)
+            # Mostrar últimos 5 cálculos (opción 12)
             elif opcion == '12':
+                console.print('\n[bold cyan]=== ÚLTIMOS CÁLCULOS ===[/bold cyan]\n')
+                mostrar_ultimos_calculos(5)
+
+            # Limpiar historial (opción 13)
+            elif opcion == '13':
+                confirmacion = Prompt.ask(
+                    '[bold yellow]⚠️ ¿Estás seguro de que deseas limpiar todo el historial? (s/n)[/bold yellow]',
+                    choices=['s', 'n', 'S', 'N'],
+                    default='n'                    
+                )
+                if confirmacion.lower() == 's':
+                    limpiar_historial()
+
+            # Salir (opción 14)
+            elif opcion == '14':
                 console.print(Panel(
                     '[bold green]✋ Hasta pronto[/bold green]',
                     border_style= 'green'
@@ -243,7 +260,7 @@ def menu() -> None:
                 break
             
             # Pausa antes de mostrar el menú nuevamente
-            if opcion != '12':
+            if opcion != '14':
                 console.print('\n[dim]Presiona ENTER para continuar...[/dim]')
                 input()
                 console.clear()

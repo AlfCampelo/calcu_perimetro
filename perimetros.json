@@ -297,5 +297,94 @@
             "cateto_1": 45.0,
             "cateto_2": 23.0
         }
+    },
+    {
+        "fecha": "24/11/2025 12:56:12",
+        "figura": "cuadrado",
+        "perimetro": 36.0,
+        "parametros": {
+            "lado": 9.0
+        }
+    },
+    {
+        "fecha": "24/11/2025 12:56:23",
+        "figura": "rectangulo",
+        "perimetro": 306.0,
+        "parametros": {
+            "base": 65.0,
+            "altura": 88.0
+        }
+    },
+    {
+        "fecha": "24/11/2025 12:56:34",
+        "figura": "trapecio",
+        "perimetro": 32.0,
+        "parametros": {
+            "base_mayor": 12.0,
+            "base_menor": 8.0,
+            "lado": 6.0
+        }
+    },
+    {
+        "fecha": "24/11/2025 12:56:40",
+        "figura": "circulo",
+        "perimetro": 314.16,
+        "parametros": {
+            "radio": 50.0
+        }
+    },
+    {
+        "fecha": "24/11/2025 12:56:58",
+        "figura": "poligono_regular",
+        "perimetro": 126.0,
+        "parametros": {
+            "num_lados": 14,
+            "lado": 9.0
+        }
+    },
+    {
+        "fecha": "24/11/2025 12:57:08",
+        "figura": "triangulo_equilatero",
+        "perimetro": 27.0,
+        "parametros": {
+            "lado": 9.0
+        }
+    },
+    {
+        "fecha": "24/11/2025 12:57:24",
+        "figura": "triangulo_isosceles",
+        "perimetro": 21.0,
+        "parametros": {
+            "lados_iguales": 8.0,
+            "lado": 5.0
+        }
+    },
+    {
+        "fecha": "24/11/2025 12:57:35",
+        "figura": "triangulo_escaleno",
+        "perimetro": 21.0,
+        "parametros": {
+            "lado_1": 9.0,
+            "lado_2": 5.0,
+            "lado_3": 7.0
+        }
+    },
+    {
+        "fecha": "24/11/2025 12:57:47",
+        "figura": "triangulo_rectangulo",
+        "perimetro": 37.62,
+        "parametros": {
+            "cateto_1": 12.0,
+            "cateto_2": 10.0
+        }
+    },
+    {
+        "fecha": "24/11/2025 19:17:58",
+        "figura": "poligono_regular",
+        "perimetro": 72.0,
+        "parametros": {
+            "num_lados": 8,
+            "lado": 9.0
+        }
     }
 ]

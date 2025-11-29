@@ -387,4 +387,555 @@
             "lado": 9.0
         }
     }
+,
+    {
+        "fecha": "29/11/2025 19:37:05",
+        "figura": "cuadrado",
+        "perimetro": 260.0,
+        "parametros": {
+            "lado": 65.0
+        }
+    }
+,
+    {
+        "fecha": "29/11/2025 19:37:19",
+        "figura": "rectangulo",
+        "perimetro": 28.0,
+        "parametros": {
+            "base": 6.0,
+            "altura": 8.0
+        }
+    }
+,
+    {
+        "fecha": "29/11/2025 19:39:37",
+        "figura": "cuadrado",
+        "perimetro": 20.0,
+        "parametros": {
+            "lado": 5.0
+        }
+    }
+,
+    {
+        "fecha": "29/11/2025 19:41:14",
+        "figura": "rectangulo",
+        "perimetro": 188.0,
+        "parametros": {
+            "base": 88.0,
+            "altura": 6.0
+        }
+    }
+,
+    {
+        "fecha": "29/11/2025 19:44:51",
+        "figura": "triangulo_equilatero",
+        "perimetro": 150.0,
+        "parametros": {
+            "lado": 50.0
+        }
+    }
+,
+    {
+        "fecha": "29/11/2025 19:45:05",
+        "figura": "triangulo_rectangulo",
+        "perimetro": 199.98,
+        "parametros": {
+            "cateto_1": 54.0,
+            "cateto_2": 63.0
+        }
+    }
+,
+    {
+        "fecha": "29/11/2025 21:11:13",
+        "figura": "circulo",
+        "perimetro": 615.75,
+        "parametros": {
+            "radio": 98.0
+        }
+    },
+    {
+        "fecha": "18/11/2025 22:30:S",
+        "figura": "cuadrado",
+        "perimetro": 20.0,
+        "parametros": {
+            "lado": 5.0
+        }
+    },
+    {
+        "fecha": "19/11/2025 12:08:S",
+        "figura": "cuadrado",
+        "perimetro": 24.0,
+        "parametros": {
+            "lado": 6.0
+        }
+    },
+    {
+        "fecha": "19/11/2025 12:12:S",
+        "figura": "cuadrado",
+        "perimetro": 32.0,
+        "parametros": {
+            "lado": 8.0
+        }
+    },
+    {
+        "fecha": "19/11/2025 12:13:S",
+        "figura": "rectangulo",
+        "perimetro": 26.0,
+        "parametros": {
+            "base": 5.0,
+            "altura": 8.0
+        }
+    },
+    {
+        "fecha": "19/11/2025 12:13:S",
+        "figura": "trapecio",
+        "perimetro": 26.0,
+        "parametros": {
+            "base_mayor": 10.0,
+            "base_menor": 6.0,
+            "lado": 5.0
+        }
+    },
+    {
+        "fecha": "19/11/2025 12:14:S",
+        "figura": "circulo",
+        "perimetro": 50.27,
+        "parametros": {
+            "radio": 8.0
+        }
+    },
+    {
+        "fecha": "19/11/2025 12:14:S",
+        "figura": "poligono_regular",
+        "perimetro": 40.0,
+        "parametros": {
+            "num_lados": 8,
+            "lado": 5.0
+        }
+    },
+    {
+        "fecha": "19/11/2025 12:14:S",
+        "figura": "triangulo_equilatero",
+        "perimetro": 24.0,
+        "parametros": {
+            "lado": 8.0
+        }
+    },
+    {
+        "fecha": "19/11/2025 12:15:S",
+        "figura": "triangulo_isosceles",
+        "perimetro": 16.0,
+        "parametros": {
+            "lados_iguales": 6.0,
+            "lado": 4.0
+        }
+    },
+    {
+        "fecha": "19/11/2025 12:15:S",
+        "figura": "triangulo_escaleno",
+        "perimetro": 21.0,
+        "parametros": {
+            "lado_1": 8.0,
+            "lado_2": 9.0,
+            "lado_3": 4.0
+        }
+    },
+    {
+        "fecha": "19/11/2025 12:16:S",
+        "figura": "triangulo_rectangulo",
+        "perimetro": 52.36,
+        "parametros": {
+            "cateto_1": 20.0,
+            "cateto_2": 10.0
+        }
+    },
+    {
+        "fecha": "19/11/2025 13:20:S",
+        "figura": "cuadrado",
+        "perimetro": 40.0,
+        "parametros": {
+            "lado": 10.0
+        }
+    },
+    {
+        "fecha": "19/11/2025 13:20:S",
+        "figura": "rectangulo",
+        "perimetro": 40.0,
+        "parametros": {
+            "base": 8.0,
+            "altura": 12.0
+        }
+    },
+    {
+        "fecha": "19/11/2025 13:20:S",
+        "figura": "trapecio",
+        "perimetro": 48.0,
+        "parametros": {
+            "base_mayor": 20.0,
+            "base_menor": 12.0,
+            "lado": 8.0
+        }
+    },
+    {
+        "fecha": "19/11/2025 13:20:S",
+        "figura": "circulo",
+        "perimetro": 37.7,
+        "parametros": {
+            "radio": 6.0
+        }
+    },
+    {
+        "fecha": "19/11/2025 13:21:S",
+        "figura": "poligono_regular",
+        "perimetro": 96.0,
+        "parametros": {
+            "num_lados": 12,
+            "lado": 8.0
+        }
+    },
+    {
+        "fecha": "19/11/2025 13:21:S",
+        "figura": "triangulo_equilatero",
+        "perimetro": 24.0,
+        "parametros": {
+            "lado": 8.0
+        }
+    },
+    {
+        "fecha": "19/11/2025 13:21:S",
+        "figura": "triangulo_isosceles",
+        "perimetro": 26.0,
+        "parametros": {
+            "lados_iguales": 10.0,
+            "lado": 6.0
+        }
+    },
+    {
+        "fecha": "19/11/2025 13:21:S",
+        "figura": "triangulo_escaleno",
+        "perimetro": 30.0,
+        "parametros": {
+            "lado_1": 8.0,
+            "lado_2": 10.0,
+            "lado_3": 12.0
+        }
+    },
+    {
+        "fecha": "19/11/2025 13:22:S",
+        "figura": "triangulo_rectangulo",
+        "perimetro": 34.42,
+        "parametros": {
+            "cateto_1": 12.0,
+            "cateto_2": 8.0
+        }
+    },
+    {
+        "fecha": "19/11/2025 13:27:S",
+        "figura": "cuadrado",
+        "perimetro": 32.0,
+        "parametros": {
+            "lado": 8.0
+        }
+    },
+    {
+        "fecha": "19/11/2025 14:34:25",
+        "figura": "cuadrado",
+        "perimetro": 20.0,
+        "parametros": {
+            "lado": 5.0
+        }
+    },
+    {
+        "fecha": "19/11/2025 22:05:53",
+        "figura": "poligono_regular",
+        "perimetro": 72.0,
+        "parametros": {
+            "num_lados": 9,
+            "lado": 8.0
+        }
+    },
+    {
+        "fecha": "19/11/2025 22:08:16",
+        "figura": "circulo",
+        "perimetro": 50.27,
+        "parametros": {
+            "radio": 8.0
+        }
+    },
+    {
+        "fecha": "20/11/2025 19:06:10",
+        "figura": "cuadrado",
+        "perimetro": 100.0,
+        "parametros": {
+            "lado": 25.0
+        }
+    },
+    {
+        "fecha": "20/11/2025 19:06:23",
+        "figura": "rectangulo",
+        "perimetro": 28.0,
+        "parametros": {
+            "base": 6.0,
+            "altura": 8.0
+        }
+    },
+    {
+        "fecha": "20/11/2025 19:06:44",
+        "figura": "trapecio",
+        "perimetro": 63.0,
+        "parametros": {
+            "base_mayor": 25.0,
+            "base_menor": 18.0,
+            "lado": 10.0
+        }
+    },
+    {
+        "fecha": "20/11/2025 19:06:53",
+        "figura": "circulo",
+        "perimetro": 157.08,
+        "parametros": {
+            "radio": 25.0
+        }
+    },
+    {
+        "fecha": "20/11/2025 19:07:12",
+        "figura": "poligono_regular",
+        "perimetro": 225.0,
+        "parametros": {
+            "num_lados": 25,
+            "lado": 9.0
+        }
+    },
+    {
+        "fecha": "20/11/2025 19:07:31",
+        "figura": "triangulo_equilatero",
+        "perimetro": 27.0,
+        "parametros": {
+            "lado": 9.0
+        }
+    },
+    {
+        "fecha": "20/11/2025 19:07:45",
+        "figura": "triangulo_isosceles",
+        "perimetro": 155.0,
+        "parametros": {
+            "lados_iguales": 65.0,
+            "lado": 25.0
+        }
+    },
+    {
+        "fecha": "20/11/2025 19:08:01",
+        "figura": "triangulo_escaleno",
+        "perimetro": 59.0,
+        "parametros": {
+            "lado_1": 41.0,
+            "lado_2": 16.0,
+            "lado_3": 2.0
+        }
+    },
+    {
+        "fecha": "20/11/2025 19:11:19",
+        "figura": "triangulo_escaleno",
+        "perimetro": 171.0,
+        "parametros": {
+            "lado_1": 80.0,
+            "lado_2": 90.0,
+            "lado_3": 1.0
+        }
+    },
+    {
+        "fecha": "20/11/2025 19:13:00",
+        "figura": "triangulo_rectangulo",
+        "perimetro": 118.54,
+        "parametros": {
+            "cateto_1": 45.0,
+            "cateto_2": 23.0
+        }
+    },
+    {
+        "fecha": "24/11/2025 12:56:12",
+        "figura": "cuadrado",
+        "perimetro": 36.0,
+        "parametros": {
+            "lado": 9.0
+        }
+    },
+    {
+        "fecha": "24/11/2025 12:56:23",
+        "figura": "rectangulo",
+        "perimetro": 306.0,
+        "parametros": {
+            "base": 65.0,
+            "altura": 88.0
+        }
+    },
+    {
+        "fecha": "24/11/2025 12:56:34",
+        "figura": "trapecio",
+        "perimetro": 32.0,
+        "parametros": {
+            "base_mayor": 12.0,
+            "base_menor": 8.0,
+            "lado": 6.0
+        }
+    },
+    {
+        "fecha": "24/11/2025 12:56:40",
+        "figura": "circulo",
+        "perimetro": 314.16,
+        "parametros": {
+            "radio": 50.0
+        }
+    },
+    {
+        "fecha": "24/11/2025 12:56:58",
+        "figura": "poligono_regular",
+        "perimetro": 126.0,
+        "parametros": {
+            "num_lados": 14,
+            "lado": 9.0
+        }
+    },
+    {
+        "fecha": "24/11/2025 12:57:08",
+        "figura": "triangulo_equilatero",
+        "perimetro": 27.0,
+        "parametros": {
+            "lado": 9.0
+        }
+    },
+    {
+        "fecha": "24/11/2025 12:57:24",
+        "figura": "triangulo_isosceles",
+        "perimetro": 21.0,
+        "parametros": {
+            "lados_iguales": 8.0,
+            "lado": 5.0
+        }
+    },
+    {
+        "fecha": "24/11/2025 12:57:35",
+        "figura": "triangulo_escaleno",
+        "perimetro": 21.0,
+        "parametros": {
+            "lado_1": 9.0,
+            "lado_2": 5.0,
+            "lado_3": 7.0
+        }
+    },
+    {
+        "fecha": "24/11/2025 12:57:47",
+        "figura": "triangulo_rectangulo",
+        "perimetro": 37.62,
+        "parametros": {
+            "cateto_1": 12.0,
+            "cateto_2": 10.0
+        }
+    },
+    {
+        "fecha": "24/11/2025 19:17:58",
+        "figura": "poligono_regular",
+        "perimetro": 72.0,
+        "parametros": {
+            "num_lados": 8,
+            "lado": 9.0
+        }
+    }
+,
+    {
+        "fecha": "29/11/2025 19:37:05",
+        "figura": "cuadrado",
+        "perimetro": 260.0,
+        "parametros": {
+            "lado": 65.0
+        }
+    }
+,
+    {
+        "fecha": "29/11/2025 19:37:19",
+        "figura": "rectangulo",
+        "perimetro": 28.0,
+        "parametros": {
+            "base": 6.0,
+            "altura": 8.0
+        }
+    }
+,
+    {
+        "fecha": "29/11/2025 19:39:37",
+        "figura": "cuadrado",
+        "perimetro": 20.0,
+        "parametros": {
+            "lado": 5.0
+        }
+    }
+,
+    {
+        "fecha": "29/11/2025 19:41:14",
+        "figura": "rectangulo",
+        "perimetro": 188.0,
+        "parametros": {
+            "base": 88.0,
+            "altura": 6.0
+        }
+    }
+,
+    {
+        "fecha": "29/11/2025 19:44:51",
+        "figura": "triangulo_equilatero",
+        "perimetro": 150.0,
+        "parametros": {
+            "lado": 50.0
+        }
+    }
+,
+    {
+        "fecha": "29/11/2025 19:45:05",
+        "figura": "triangulo_rectangulo",
+        "perimetro": 199.98,
+        "parametros": {
+            "cateto_1": 54.0,
+            "cateto_2": 63.0
+        }
+    }
+,
+    {
+        "fecha": "29/11/2025 21:11:13",
+        "figura": "circulo",
+        "perimetro": 615.75,
+        "parametros": {
+            "radio": 98.0
+        }
+    }
+,
+    {
+        "fecha": "29/11/2025 21:19:24",
+        "figura": "poligono_regular",
+        "perimetro": 48.0,
+        "parametros": {
+            "num_lados": 8,
+            "lado": 6.0
+        }
+    }
+,
+    {
+        "fecha": "29/11/2025 21:20:38",
+        "figura": "triangulo_rectangulo",
+        "perimetro": 24.3,
+        "parametros": {
+            "cateto_1": 9.0,
+            "cateto_2": 5.0
+        }
+    }
+,
+    {
+        "fecha": "29/11/2025 21:21:17",
+        "figura": "trapecio",
+        "perimetro": 240.0,
+        "parametros": {
+            "base_mayor": 120.0,
+            "base_menor": 80.0,
+            "lado": 20.0
+        }
+    }
 ]

@@ -76,7 +76,7 @@ _cache_global = CacheJSON()
 # FUNCIONES DE LECTURA OPTIMIZADAS
 # ========================================
 
-def cargar_json(ruta: Path = ARCHIVO_JSON, default=None, usar_cache: bool = True) -> List[Dict]:
+def cargar_json(ruta: Path=ARCHIVO_JSON, default=None, usar_cache: bool=True) -> List[Dict]:
     '''
     Carga datos desde un archivo JSON con sistema de caché.
     
@@ -115,7 +115,7 @@ def cargar_json(ruta: Path = ARCHIVO_JSON, default=None, usar_cache: bool = True
     return default or []
 
 
-def cargar_json_lazy(ruta: Path = ARCHIVO_JSON):
+def cargar_json_lazy(ruta: Path=ARCHIVO_JSON):
     '''
     Generador que carga el JSON línea por línea (para archivos muy grandes).
     Útil cuando el archivo JSON es un array de objetos.
@@ -157,7 +157,7 @@ def cargar_json_lazy(ruta: Path = ARCHIVO_JSON):
 # FUNCIONES DE ESCRITURA OPTIMIZADAS
 # ========================================
 
-def guardar_json(dato: Dict, ruta: Path = ARCHIVO_JSON, usar_cache: bool = True) -> bool:
+def guardar_json(dato: Dict, ruta: Path=ARCHIVO_JSON, usar_cache: bool=True) -> bool:
     '''
     Guarda un dato en el archivo JSON de forma optimizada.
     
@@ -179,7 +179,7 @@ def guardar_json(dato: Dict, ruta: Path = ARCHIVO_JSON, usar_cache: bool = True)
         # Guardar con formato compacto para archivos grandes
         separadores = (',', ':') if len(datos) > 100 else (', ', ': ')
         indent = None if len(datos) > 100 else 4
-        
+        print(f'Separadores = {separadores}')
         with ruta.open('w', encoding='utf-8') as f:
             json.dump(datos, f, ensure_ascii=False, indent=indent, separators=separadores)
         
@@ -194,7 +194,7 @@ def guardar_json(dato: Dict, ruta: Path = ARCHIVO_JSON, usar_cache: bool = True)
         return False
 
 
-def guardar_json_append(dato: Dict, ruta: Path = ARCHIVO_JSON) -> bool:
+def guardar_json_append(dato: Dict, ruta: Path=ARCHIVO_JSON) -> bool:
     '''
     Agrega un registro al final del archivo sin reescribir todo (más rápido).
     ADVERTENCIA: Requiere que el archivo JSON esté formateado como array.
@@ -247,7 +247,7 @@ def guardar_json_append(dato: Dict, ruta: Path = ARCHIVO_JSON) -> bool:
         return False
 
 
-def guardar_json_batch(datos: List[Dict], ruta: Path = ARCHIVO_JSON) -> bool:
+def guardar_json_batch(datos: List[Dict], ruta: Path=ARCHIVO_JSON) -> bool:
     '''
     Guarda múltiples registros de una vez (mucho más eficiente).
     
@@ -366,7 +366,7 @@ def datos_a_tuple(datos: List[Dict]) -> tuple:
 # FUNCIONES DE VISUALIZACIÓN (optimizadas)
 # ========================================
 
-def mostrar_json(limite: Optional[int] = None) -> None:
+def mostrar_json(limite: Optional[int]=None) -> None:
     '''
     Muestra todos los datos del JSON con Rich en formato tabla.
     
@@ -591,7 +591,7 @@ def limpiar_historial() -> bool:
         return False
 
 
-def buscar_por_figura(figura: str, ruta: Path = ARCHIVO_JSON) -> None:
+def buscar_por_figura(figura: str, ruta: Path=ARCHIVO_JSON) -> None:
     ''' Busca y muestra registros de una figura específica (optimizado) '''
     datos = cargar_json(ruta)
     
